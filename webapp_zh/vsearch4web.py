@@ -1,3 +1,4 @@
+ # -*- coding: utf-8 -*- 
 from flask import Flask, render_template, request, escape
 from vsearch import search4letters
 
@@ -15,6 +16,7 @@ def do_search() -> 'html':
     """Extract the posted data; perform the search; return results."""
     phrase = request.form['phrase']
     letters = request.form['letters']
+    color = request.form['user_color']
     title = '以下是您的结果：'
     results = search4letters(phrase, letters)
     log_request(request, results)
@@ -22,7 +24,9 @@ def do_search() -> 'html':
                            the_title=title,
                            the_phrase=phrase,
                            the_letters=letters,
-                           the_results=results,)
+                           the_results=results,
+                           the_color=color,
+                           )
 
 
 @app.route('/')
