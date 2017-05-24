@@ -16,7 +16,7 @@ def do_search() -> 'html':
     phrase = request.form['phrase']
     letters = request.form['letters']
     title = '以下是您的结果：'
-    results = str(search4letters(phrase, letters))
+    results = search4letters(phrase, letters)
     log_request(request, results)
     return render_template('results.html',
                            the_title=title,
@@ -30,7 +30,7 @@ def do_search() -> 'html':
 def entry_page() -> 'html':
     """Display this webapp's HTML form."""
     return render_template('entry.html',
-                           the_title='欢迎来到网上 汉语找介词！')
+                           the_title='欢迎来到网上 汉语找可能介词！')
 
 
 @app.route('/viewlog')
