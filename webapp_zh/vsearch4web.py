@@ -6,7 +6,7 @@ app = Flask(__name__)
 
 def log_request(req: 'flask_request', res: str) -> None:
     """Log details of the web request and the results."""
-    with open('vsearch.log', 'a') as log:
+    with open('vsearch.log', 'a',encoding='utf8') as log:
         print(req.form, req.remote_addr, req.user_agent, res, file=log, sep='|')
 
 
