@@ -49,3 +49,6 @@ Temporary Items
 # Directories potentially created by Python runtime
 .pyc
 __pycache__
+
+# Files
+*.log created by Python runtime
